@@ -1,0 +1,19 @@
+<section class="year-section loading" data-controller="activities" data-activities-year="<%= year %>" data-activities-count="<%= activities.length %>" data-activities-next="false">
+  <h1 class="year"><%= year %></h1>
+  <ul class="year-stats">
+    <% ["Swim", "Ride", "Run"].each do |type| %>
+      <% if activities.select { |a| a.type == type }.any? %>
+        <li class="speciality">
+          <span class="icon"><%= svg type %></span>
+          <span class="km"><%=  km(activities.select { |a| a.type == type }.sum(&:distance)).round %> km</span>
+          <span class="duration"><%= duration activities.select { |a| a.type == type }.sum(&:moving_time) %></span>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+  <div class="loader-wrapper">
+    <div class="loader">
+      <div></div>
+    </div>
+  </div>
+</section>

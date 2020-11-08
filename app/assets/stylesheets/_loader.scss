@@ -1,0 +1,46 @@
+@keyframes loader {
+  0%, 100% {
+    animation-timing-function: cubic-bezier(0.45,0,0.9,0.55)
+  }
+  0% {
+    transform: translate(0,0)
+  }
+  50% {
+    transform: translate(0,54px);
+    animation-timing-function: cubic-bezier(0,0.45,0.55,0.9);
+  }
+  100% {
+    transform: translate(0,0);
+  }
+}
+
+.loader div {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  // background: #fc5200;
+  left: 37px;
+  top: 10px;
+  animation: loader 1s linear infinite;
+}
+
+.loader-wrapper {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  width: 48px;
+  height: 48px;
+  display: inline-block;
+  overflow: hidden;
+  // background: #ffffff;
+}
+.loader {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform: translateZ(0) scale(0.48);
+  backface-visibility: hidden;
+  transform-origin: 0 0; /* see note above */
+}
+.loader div { box-sizing: content-box; }

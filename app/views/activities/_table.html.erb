@@ -1,0 +1,20 @@
+<table>
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Type</th>
+      <th>Date</th>
+      <th>Distance</th>
+      <th>Durée</th>
+    </tr>
+  </thead>
+  <% activities.each do |activity| %>
+    <tr>
+      <td><%= activity.name %></td>
+      <td><%= activity.type %></td>
+      <td><%= DateTime.parse activity.start_date_local %></td>
+      <td><%= km activity.distance %> km</td>
+      <td><%= duration activity.moving_time %></td>
+    </tr>
+  <% end %>
+</table>
