@@ -1,6 +1,11 @@
 require_relative 'boot'
 
-require 'rails/all'
+# require 'rails/all'
+require 'action_controller/railtie'
+require 'action_mailer/railtie'
+require 'active_model/railtie'
+require 'sprockets/railtie'
+require 'rails/test_unit/railtie'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -16,6 +21,5 @@ module App
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
     config.time_zone = 'Europe/Paris'
-    config.active_record.default_timezone = :local
   end
 end
