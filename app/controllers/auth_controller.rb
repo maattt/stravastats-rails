@@ -13,7 +13,7 @@ class AuthController < ApplicationController
         session[:access_token] = JSON.parse(response.body, object_class: OpenStruct).access_token
         redirect_to root_path
       else
-        redirect_to  "https://www.strava.com/oauth/authorize?client_id=#{ENV["CLIENT_ID"]}&response_type=code&scope=activity:read_all&redirect_uri=#{REDIRECT_URI}&approval_prompt=force"
+        redirect_to  "https://www.strava.com/oauth/authorize?client_id=#{ENV["CLIENT_ID"]}&response_type=code&scope=activity:read_all&redirect_uri=#{ENV["REDIRECT_URI"]}&approval_prompt=force"
       end
     # end
   end

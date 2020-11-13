@@ -61,5 +61,3 @@ Rails.application.configure do
   # config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   config.file_watcher = ActiveSupport::FileUpdateChecker
 end
-
-REDIRECT_URI = "http://localhost:3000/auth"
