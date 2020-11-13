@@ -7,8 +7,19 @@
   justify-content: center;
   color: #fc5200;
 
-  .icon svg {
-    fill: #fc5200;
+  .icon {
+    grid-area: a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    font-size: 2rem;
+
+    svg {
+      height: 4rem;
+      fill: #fc5200;
+    }
   }
 
   .loader div {
@@ -49,20 +60,6 @@
   text-align: center;
   grid-template-areas: " a b "
                        " a c ";
-}
-
-.icon {
-  grid-area: a;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-right: 1rem;
-  font-size: 2rem;
-
-  svg {
-    height: 4rem;
-  }
 }
 
 .km {

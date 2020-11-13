@@ -16,7 +16,7 @@ class ActivitiesController < ApplicationController
   rescue
     respond_to do |format|
       format.html {
-        redirect_to "/auth"
+        redirect_to root_path
       }
       format.js {
         render plain: "errror"
@@ -26,6 +26,6 @@ class ActivitiesController < ApplicationController
 
   private
   def check_session
-    redirect_to "/auth" if session[:access_token].blank?
+    redirect_to root_path if session[:access_token].blank?
   end
 end

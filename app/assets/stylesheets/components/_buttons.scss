@@ -1,0 +1,18 @@
+.btn {
+  padding: 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.btn-strava {
+  color: white;
+  background: #fc5200;
+  border-color: #fc5200;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+
+  &:hover, &:focus {
+    background: #cc4200;
+    border-color: #cc4200;
+  }
+}
