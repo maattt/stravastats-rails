@@ -13,16 +13,15 @@ class ActivitiesController < ApplicationController
         render json: { html: @activities.any? ? render_to_string(partial: 'year_section', formats: "html", locals: { activities: @activities, year: @year }) : "" }
       }
     end
-  # rescue
-    # render plain: "error"
-    # respond_to do |format|
-    #   format.html {
-        # redirect_to "/auth"
-      # }
-      # format.js {
-      #   render plain: "errror"
-      # }
-    # end
+  rescue
+    respond_to do |format|
+      format.html {
+        redirect_to "/auth"
+      }
+      format.js {
+        render plain: "errror"
+      }
+    end
   end
 
   private
