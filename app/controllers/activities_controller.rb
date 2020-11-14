@@ -14,6 +14,7 @@ class ActivitiesController < ApplicationController
       }
     end
   rescue
+    reset_session
     respond_to do |format|
       format.html {
         redirect_to root_path

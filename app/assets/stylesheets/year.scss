@@ -6,6 +6,16 @@
   align-items: center;
   justify-content: center;
   color: #fc5200;
+  font-family: 'Dosis', serif;
+
+  ::selection {
+    color: white;
+    background: #fc5200;
+  }
+  ::-moz-selection {
+    color: white;
+    background: #fc5200;
+  }
 
   .icon {
     grid-area: a;
@@ -30,11 +40,29 @@
     background: #fc5200;
     color: white;
 
+    ::selection {
+      color: #fc5200;
+      background: white;
+    }
+    ::-moz-selection {
+      color: #fc5200;
+      background: white;
+    }
+
     .icon svg {
       fill: white;
     }
 
     .loader div {
+      background: white;
+    }
+
+    &::selection {
+      color: #fc5200;
+      background: white;
+    }
+    &::-moz-selection {
+      color: #fc5200;
       background: white;
     }
   }
