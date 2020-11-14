@@ -1,0 +1,8 @@
+{
+  "name": "StrvStats",
+  "short_name": "StrvStts",
+  "lang": "fr",
+  "display": "standalone",
+  "background_color": "#fc5200",
+  "theme_color": "#fc5200"
+}
