@@ -17,3 +17,11 @@ import 'controllers'
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('service-worker.js').then(function(reg) {
+    console.log("registration succeeded")
+  }).catch(function(error) {
+    console.log("registration failed: " + error);
+  })
+}
