@@ -1,8 +1,17 @@
 {
-  "name": "StrvStats",
-  "short_name": "StrvStts",
+  "name": "StravaStats",
+  "short_name": "StrvStats",
+  "description": "Your Strava Statistiques",
   "lang": "fr",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#fc5200",
-  "theme_color": "#fc5200"
+  "theme_color": "#fc5200",
+  icons: [
+    {
+      "src": "icon.png",
+      "sizes": "60x60",
+      "type": "image/png"
+    }
+  ]
 }
