@@ -7,7 +7,7 @@
   "display": "standalone",
   "background_color": "#fc5200",
   "theme_color": "#fc5200",
-  icons: [
+  "icons": [
     {
       "src": "icon.png",
       "sizes": "60x60",
