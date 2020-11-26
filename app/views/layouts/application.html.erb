@@ -17,7 +17,7 @@
   <body>
     <% if session[:access_token] %>
       <header class="header">
-        <nav class="navbar">&nbsp;</nav>
+        <nav class="navbar"></nav>
         <section class="user-section">
         <span><%= "#{session[:athlete_firstname]} #{session[:athlete_lastname]}" %></span> | 
         <%= link_to "Se déconnecter", "/logout", data: { method: :delete } %>
