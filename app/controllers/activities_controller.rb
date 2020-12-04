@@ -10,7 +10,11 @@ class ActivitiesController < ApplicationController
     respond_to do |format|
       format.html {}
       format.json {
-        render json: { html: @activities.any? ? render_to_string(partial: 'year_section', formats: "html", locals: { activities: @activities, year: @year }) : "" }
+        if params[:month]
+          render json: { html: @activities.any? ? render_to_string(partial: 'month_section', formats: "html", locals: { activities: @activities, year: @year }) : "" }
+        else
+          render json: { html: @activities.any? ? render_to_string(partial: 'year_section', formats: "html", locals: { activities: @activities, year: @year }) : "" }
+        end
       }
     end
   rescue

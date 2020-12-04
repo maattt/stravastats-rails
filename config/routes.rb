@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   get '/auth' => "auth#index"
   delete '/logout' => "auth#destroy"
 
-  resources :activities, only: [:index]
+  get 'activities(/:month)', to: 'activities#index'
+
+  # resources :activities, only: [:index]
 end

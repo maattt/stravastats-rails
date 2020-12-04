@@ -10,7 +10,7 @@ module ApplicationHelper
     if hours > 0
       return "#{hours}h#{minutes < 10 ? "0#{minutes}" : minutes}"
     else
-      return "#{minutes}min #{seconds < 10 ? "0#{seconds}" : seconds}s"
+      return "#{minutes}min"# #{seconds < 10 ? "0#{seconds}" : seconds}s"
     end
   end
 

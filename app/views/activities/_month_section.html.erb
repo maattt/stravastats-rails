@@ -1,0 +1,22 @@
+<section class="months-section" data-controller="activities" data-activities-year="<%= year %>" data-activities-type="monthly" data-activities-count="<%= activities.length %>" data-activities-next="false">
+  <h1 class="year"><%= year %></h1>
+  <div class="container">
+    <% 12.times.each do |month| %>
+      <% month_activities = activities.select { |a| DateTime.parse(a.start_date).month == month+1 } %>
+      <section class="month-section">
+        <h2 class="month"><%= l DateTime.new(Date.today.year, month+1, 1), format: :month %></h2>
+        <ul class="month-stats">
+          <% ["Swim", "Ride", "Run"].each do |type| %>
+            <% if month_activities.select { |a| a.type == type }.any? %>
+              <li class="speciality">
+                <span class="icon"><%= svg type %></span>
+                <span class="km"><%=  km(month_activities.select { |a| a.type == type }.sum(&:distance)).round %> km</span>
+                <span class="duration"><%= duration month_activities.select { |a| a.type == type }.sum(&:moving_time) %></span>
+              </li>
+            <% end %>
+          <% end %>
+        </ul>
+      </section>
+    <% end %>
+  </div>
+</section>

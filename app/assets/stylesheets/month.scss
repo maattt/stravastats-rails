@@ -1,0 +1,90 @@
+.months-section {
+  height: 100vh;
+
+  h1.year {
+    position: absolute;
+    height: 100vh;
+    margin: 0;
+    text-align: center;
+    background: #fc5200;
+    color: white;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+  }
+
+  .container {
+    display: flex;
+    height: 100%;
+    padding-left: 96px;
+    flex-wrap: wrap;
+  }
+
+  h2.month {
+    margin: 0;
+    text-align: center;
+    text-transform: capitalize;
+  }
+
+  .month-section {
+    width: calc(100% / 3);
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fc5200;
+    font-family: 'Dosis', serif;
+
+    &:nth-child(2n) {
+      background: #fc5200;
+      color: white;
+
+      ::selection {
+        color: #fc5200;
+        background: white;
+      }
+      ::-moz-selection {
+        color: #fc5200;
+        background: white;
+      }
+
+      .icon svg {
+        fill: white;
+      }
+
+      .loader div {
+        background: white;
+      }
+
+      &::selection {
+        color: #fc5200;
+        background: white;
+      }
+      &::-moz-selection {
+        color: #fc5200;
+        background: white;
+      }
+    }
+  }
+
+  .speciality .icon svg {
+    height: 2rem;
+  }
+}
+
+.months-section:first-child .container {
+  padding-top: 2rem;
+}
+
+.month-stats {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  flex-direction: column;
+  list-style-type: none;
+  font-size: 1rem;
+
+  @media screen and (min-width: 720px) and (orientation: landscape) {
+    flex-direction: row;
+  }
+}

@@ -11,13 +11,14 @@ export default class extends Controller {
     if (this.data.get("next") == "false" && parseInt(this.data.get("count")) > 0) {
       let stimulus = this;
       let year = parseInt(this.data.get("year")) - 1
+      let type = this.data.get("type")
 
       stimulus.element.classList.add('loading')
 
       Rails.ajax({
         type: "get",
         datatType: "json",
-        url: "/activities.json?year=" + year,
+        url: "/activities" + (type == "monthly" ? "/monthly" : "")  + ".json?year=" + year,
         success: function(data) {
           stimulus.data.set("next", "true")
           stimulus.element.classList.remove('loading')
