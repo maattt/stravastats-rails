@@ -71,7 +71,7 @@
 .year {
   margin: 0;
   margin-bottom: 2rem;
-  font-size: 5rem;
+  font-size: 3.5rem;
 }
 
 .year-stats {
@@ -80,16 +80,12 @@
   padding: 0;
   flex-direction: column;
   list-style-type: none;
-  font-size: 1.5rem;
-
-  @media screen and (min-width: 720px) and (orientation: landscape) {
-    flex-direction: row;
-  }
+  font-size: 1.2rem;
 }
 
 .speciality {
   display: grid;
-  margin: 2rem 3rem;
+  margin: 2rem 1.5rem;
   text-align: center;
   grid-template-areas: " a b "
                        " a c ";
@@ -110,4 +106,24 @@
 
 .loading .loader {
   display: block;
+}
+
+@media screen and (min-width: 720px) {
+  .year {
+    font-size: 5rem;
+  }
+
+  .year-stats {
+    font-size: 1.2rem;
+  }
+
+  .speciality {
+    margin: 2rem 3rem;
+  }
+}
+
+@media screen and (orientation: landscape) {
+  .year-stats {
+    flex-direction: row;
+  }
 }
