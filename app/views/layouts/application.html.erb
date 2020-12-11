@@ -29,7 +29,7 @@
   </head>
 
   <body>
-    <% if session[:access_token] %>
+    <% if cookies.encrypted[:access_token] %>
       <header class="header">
         <nav class="navbar"></nav>
         <section class="user-section">

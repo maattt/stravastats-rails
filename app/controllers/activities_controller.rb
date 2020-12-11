@@ -1,11 +1,11 @@
 class ActivitiesController < ApplicationController
-  before_action :check_session
+  before_action :check_cookies
 
   def index
     @year = params[:year] ? params[:year].to_i : Date.today.year
     after = params[:year] ? Date.new(@year, 1, 1) : Date.new(Date.today.year, 1, 1)
     before = params[:year] ? Date.new(@year, 12, -1) : Date.new(Date.today.year, 12, -1)
-    @activities = Strava.activities(session[:access_token], after, before).select { |a| ["Ride", "Run", "Swim"].include? a.type }
+    @activities = Strava.activities(cookies.encrypted[:access_token], after, before).select { |a| ["Ride", "Run", "Swim"].include? a.type }
 
     respond_to do |format|
       format.html {}
@@ -15,6 +15,7 @@ class ActivitiesController < ApplicationController
     end
   rescue
     reset_session
+    cookies.delete(:access_token)
     respond_to do |format|
       format.html {
         redirect_to root_path
@@ -26,7 +27,7 @@ class ActivitiesController < ApplicationController
   end
 
   private
-  def check_session
-    redirect_to root_path if session[:access_token].blank?
+  def check_cookies
+    redirect_to root_path if cookies.encrypted[:access_token].blank?
   end
 end

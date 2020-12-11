@@ -21,4 +21,11 @@ class Strava
    end
    activities
   end
+
+  def self.athlete(token)
+    response = HTTParty.get("https://www.strava.com/api/v3/athlete", headers: {
+      Authorization: "Bearer #{token}"
+    })
+    JSON.parse(response.body, object_class: OpenStruct)
+  end
 end

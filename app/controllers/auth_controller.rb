@@ -8,14 +8,12 @@ class AuthController < ApplicationController
         grant_type: "authorization_code"
       })
       json = JSON.parse(response.body, object_class: OpenStruct)
-      session[:access_token] = json.access_token
 
-      puts JSON.parse(response.body, object_class: OpenStruct).athlete.inspect
-      puts json.athlete.profile_medium
+      cookies.permanent.encrypted[:access_token] = json.access_token
 
-      session[:athlete_firstname] = json.athlete.firstname
-      session[:athlete_lastname] = json.athlete.lastname
-      session[:athlete_profile] = json.athlete.profile_medium
+      # cookies[:athlete_firstname] = json.athlete.firstname
+      # cookies[:athlete_lastname] = json.athlete.lastname
+      # cookies[:athlete_profile] = json.athlete.profile_medium
 
       redirect_to root_path
     else
@@ -25,6 +23,7 @@ class AuthController < ApplicationController
 
   def destroy
     reset_session
+    cookies.delete(:access_token)
     redirect_to root_path
   end
 end
