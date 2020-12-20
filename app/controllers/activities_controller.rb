@@ -25,9 +25,4 @@ class ActivitiesController < ApplicationController
       }
     end
   end
-
-  private
-  def check_cookies
-    redirect_to root_path if cookies.encrypted[:access_token].blank?
-  end
 end

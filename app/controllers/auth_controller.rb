@@ -10,10 +10,8 @@ class AuthController < ApplicationController
       json = JSON.parse(response.body, object_class: OpenStruct)
 
       cookies.permanent.encrypted[:access_token] = json.access_token
-
-      # cookies[:athlete_firstname] = json.athlete.firstname
-      # cookies[:athlete_lastname] = json.athlete.lastname
-      # cookies[:athlete_profile] = json.athlete.profile_medium
+      cookies.permanent.encrypted[:expires_at] = json.expires_at
+      cookies.permanent.encrypted[:refresh_token] = json.refresh_token
 
       redirect_to root_path
     else
