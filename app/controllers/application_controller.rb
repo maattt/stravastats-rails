@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
                                })
       json = JSON.parse(response.body, object_class: OpenStruct)
       cookies.permanent.encrypted[:expires_at] = json.expires_at
+      cookies.permanent.encrypted[:access_token] = json.access_token
       cookies.permanent.encrypted[:refresh_token] = json.refresh_token
     end
   end
