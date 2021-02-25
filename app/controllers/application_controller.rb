@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  before_action :set_athlete
+
   def check_cookies
     redirect_to root_path if cookies.encrypted[:access_token].blank?
     
@@ -13,6 +15,16 @@ class ApplicationController < ActionController::Base
       cookies.permanent.encrypted[:expires_at] = json.expires_at
       cookies.permanent.encrypted[:access_token] = json.access_token
       cookies.permanent.encrypted[:refresh_token] = json.refresh_token
+    end
+  end
+
+  private
+
+  def set_athlete
+    if cookies.encrypted[:access_token] && session[:athlete_firstname].blank?
+      athlete = Strava.athlete(cookies.encrypted[:access_token])
+      session[:athlete_firstname] = athlete.firstname
+      session[:athlete_lastname] = athlete.lastname
     end
   end
 end
