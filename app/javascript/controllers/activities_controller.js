@@ -26,4 +26,8 @@ export default class extends Controller {
       });
     }
   }
+
+  chart() {
+    console.log("ok")
+  }
 }

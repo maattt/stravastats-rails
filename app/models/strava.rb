@@ -22,6 +22,19 @@ class Strava
    activities
   end
 
+  def self.distances_per_months(token, year, type)
+    distances_per_months = { "Ride" => {}, "Run" => {}, "Swim" => {} }
+
+    activities = self.activities(token, Date.new(year, 1, 1), Date.new(year, 12, 31))
+    (1..12).map do |month|
+      distances_per_months.keys.each do |t|
+        distances_per_months[t][month] ||= 0
+      distances_per_months[t][month] += activities.select { |a| a.type == t && DateTime.parse(a.start_date).month == month }.sum(&:distance)
+      end
+    end
+    return distances_per_months
+  end
+
   def self.athlete(token)
     response = HTTParty.get("https://www.strava.com/api/v3/athlete", headers: {
       Authorization: "Bearer #{token}"

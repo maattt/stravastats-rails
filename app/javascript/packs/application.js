@@ -25,3 +25,37 @@ if ('serviceWorker' in navigator) {
     console.log("registration failed: " + error);
   })
 }
+
+window.addEventListener("DOMContentLoaded", (event) => {
+  var ctx = document.getElementById('myChart');
+  var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin'],
+      datasets: [{
+        label: 'kilometers',
+        data: [120, 89, 102, 133, 77, 29],
+        borderColor: 'orange',
+        borderWidth: 2,
+        // borderJoinStyle: 'bevel',
+        // borderCapStyle: 'square',
+        fill: false
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        xAxes: [{
+          gridLines: {
+            // color: "rgba(0, 0, 0, 0)"
+          }
+        }],
+        yAxes: [{
+          gridLines: {
+            // color: "rgba(0, 0, 0, 0)"
+          }   
+        }]
+      }
+    }
+  });
+});
